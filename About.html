@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>
+			Atestat - About
+		</title>
+		<link rel="icon" type="image/x-icon" href="Images/About.png">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="js_and_css/w3schools.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<audio id="sound2" src="Sounds/HoverOverSound.mp4" preload="auto"></audio>
+
+		<style>
+			body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+			
+			body, html {
+				height: 100%;
+				line-height: 1.8;
+			}
+			
+			.bgimg-1 {
+				background-position: center;
+				background-size: cover;
+				background-image: url("https://www.w3schools.com/w3images/mac.jpg");
+				min-height: 100%;
+			}
+			
+			.w3-bar .w3-button {
+			  	padding: 16px;
+			}
+
+			.iconGreen {
+				filter: invert(57%) sepia(12%) saturate(1902%) hue-rotate(73deg) brightness(99%) contrast(97%);
+                border: none;
+                padding: 0;
+                background: none;
+			}
+
+            .iconGreen:hover{
+                transform:scale(1.3,1.3);
+            }
+
+			.gameButton {
+				height:70px;
+				width:80%;
+				line-height:70px;
+				text-align:center;
+				border: 2px solid #dd;
+				border-radius: 3px;
+				box-shadow: 2px 2px 3px 2px #999;
+				transition: all 200ms ease-out;
+				background-color: rgb(92, 215, 104);
+			}
+
+			.gameButton:hover {
+				background-color: rgb(98, 255, 114);
+				box-shadow: 5px 5px 10px 3px rgb(101, 101, 101);
+			}
+
+			.gameButton:active {
+				box-shadow: 2px 2px 2px #777;
+				transform: translateY(5px);
+			}
+
+			body {
+				overflow: hidden; /* Hide scrollbars */
+			}
+
+			.nonSelect {
+				user-select: none;
+			}
+
+			.centeredDiv {
+				display: flex;
+				margin: auto;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.column1 {
+				display: flex;
+				margin: auto;
+				justify-content: left;
+				align-items: left;
+			}
+
+			.column2 {
+				display: flex;
+				margin: auto;
+				justify-content: right;
+				align-items: right;
+			}
+
+			.textClass {
+				color: forestgreen;
+			}
+		</style>
+	</head>
+	
+	<body background="Images/PatternSprinklesGreen.png">
+		<!-- Navbar (sit on top) -->
+		<div class="w3-top">
+			<div class="w3-bar w3-green w3-card" id="myNavbar">
+				<img src="Images/Joystick.png" class="w3-bar-item" height="60px" width="100px" style="padding-left: 10px;">
+				
+				<a href="Lobby.html" class="w3-bar-item w3-green2 w3-button">
+                    <i class="fa fa-th"></i> Lobby
+                </a>
+				<!-- Hide right-floated links on small screens and replace them with a menu icon -->
+				
+				<a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+					<i class="fa fa-bars"></i>
+				</a>
+			</div>
+		</div>
+
+		<!--Top JoyByte site name and back icon-->
+		<h1 style="font-size:50px; padding-top: 75px; padding-left: 200px;">
+            <form action="Lobby.html">
+                <button type="submit"; style="border: 0px; background: none; padding-right: 50px;">
+                    <img src="Images/backIcon2.png" onmouseover="hoverOverSound()" height="50px" width="60px" class="iconGreen nonSelect">
+                </button>
+
+                <b style="color: rgb(77, 184, 81);">Joy</b><b class="w3-green2" style="border-radius: 20px;">Byte</b>  <b style="color: rgb(77, 184, 81);">Gaming</b>
+            </form>
+		</h1>
+
+		<h1 class="centeredDiv textClass" style="font-size: 60px;">
+			<b>
+				About this project
+			</b>
+		</h1>
+
+		<table style="width:100%; padding-top: 5%; font-size: 60px;">
+			<tr>
+				<td style="padding-left: 10%">
+					<h1 style="font-size: 50px;" class="column1 textClass">
+						Creator:
+					</h1>
+					<h1 style="font-size: 50px;" class="column1 textClass">
+						Occupation:
+					</h1>
+					<h1 style="font-size: 50px;" class="column1 textClass">
+						School:
+					</h1>
+					<h1 style="font-size: 50px;" class="column1 textClass">
+						Class:
+					</h1>
+					<h1 style="font-size: 50px;" class="column1 textClass">
+						Project Description:
+					</h1>
+				</td>
+
+				<td style="padding-right: 10%">
+					<h1 style="font-size: 50px;" class="column2 textClass">
+						Ban Mihai-Constantin
+					</h1>
+					<h1 style="font-size: 50px;" class="column2 textClass">
+						Student
+					</h1>
+					<h1 style="font-size: 50px;" class="column2 textClass">
+						National College "Gheorghe Sincai"
+					</h1>
+					<h1 style="font-size: 50px;" class="column2 textClass">
+						XII D
+					</h1>
+					<h1 style="font-size: 50px;" class="column2 textClass">
+						Programming certificate (Atestat)
+					</h1>
+				</td>
+			</tr>
+		</table>
+
+		<table style="width:100%; padding-top: 5%; font-size: 60px;">
+			<tr>
+				<td style="padding-left: 10%">
+					<h1 style="font-size: 50px;" class="column1 textClass">
+						CSS Libraries used:
+					</h1>
+				</td>
+
+
+				<td style="padding-right: 10%">
+					<h1 style="font-size: 40px;" class="column2 textClass">
+						GoogleAPI Railway family font
+					</h1>
+					<h1 style="font-size: 40px;" class="column2 textClass">
+						Font Awesome
+					</h1>
+					<h1 style="font-size: 40px;" class="column2 textClass">
+						A W3Schools css file (slightly modified)
+					</h1>
+				</td>
+			</tr>
+		</table>
+
+		<script>
+			var audio2 = document.getElementById("sound2");
+
+			function hoverOverSound(volume) {
+				audio2.volume = volume || .1;
+				audio2.load();
+				audio2.play();
+			}
+		</script>
+    </body>
+</html>

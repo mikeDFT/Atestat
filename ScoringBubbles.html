@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>
+			Scoring Bubbles - Game
+		</title>
+		<link rel="icon" type="image/x-icon" href="Images/ScoringBubbles_Icon.png">
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="js_and_css/ScoringBubbles.css">
+		<link rel="stylesheet" href="js_and_css/w3schools.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<audio id="sound1" src="Sounds/clickUp.mp3" preload="auto"></audio>
+		<audio id="sound2" src="Sounds/HoverOverSound.mp4" preload="auto"></audio>
+		<audio id="sound3" src="Sounds/rewardSFX.mp3" preload="auto"></audio>
+		<audio id="sound4" src="Sounds/wrongSFX.mp3" preload="auto"></audio>
+
+		<style>
+			body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+			
+			body, html {
+				height: 100%;
+				line-height: 1.8;
+			}
+			
+			.w3-bar .w3-button {
+			  	padding: 16px;
+			}
+
+            .iconGreen {
+				filter: invert(57%) sepia(12%) saturate(1902%) hue-rotate(73deg) brightness(99%) contrast(97%);
+                border: none;
+                padding: 0;
+                background: none;
+			}
+
+            .iconGreen:hover{
+                transform:scale(1.3,1.3);
+            }
+
+			body {
+				overflow: hidden; /* Hide scrollbars */
+			}
+
+			.bordershadow {
+				height:70px;
+				width:80%;
+				line-height:70px;
+				text-align:center;
+				border: 2px solid #dd;
+				border-radius: 3px;
+				box-shadow: 0 0 5px 3px rgb(34, 255, 0);
+				transition: all 200ms ease-out;
+			}
+
+			.bordershadow:hover {
+				box-shadow: 0 0 20px 3px rgb(34, 255, 0);
+			}
+			
+			.choiceBorderShadow {
+				height:70px;
+				width:80%;
+				line-height:70px;
+				text-align:center;
+				border: 2px solid #dd;
+				border-radius: 3px;
+				box-shadow: 2px 2px 3px 2px #999;
+				transition: all 200ms ease-out;
+				background-color: rgb(108, 243, 135);
+			}
+
+			.choiceBorderShadow:hover {
+				background-color: rgb(98, 255, 114);
+				box-shadow: 5px 5px 10px 3px rgb(101, 101, 101);
+			}
+
+			.choiceBorderShadow:active {
+				box-shadow: 2px 2px 2px #777;
+				transform: translateY(5px);
+			}
+
+			.alignCenter {
+				align-items: center;
+			}
+
+			.choices {
+				display: flex;
+			}
+
+			.bubble {
+				position: absolute;
+				border-radius: 50%;
+				border-width: 3px;
+				box-shadow: 0 0 10px 3px rgb(101, 101, 101);
+				opacity: 0.6;
+				display: block;
+				user-select: none;
+				text-align: center;
+				text-shadow: #777;
+				color: white;
+				overflow: visible;
+			}
+
+			.centeredDiv {
+				display: flex;
+				margin: auto;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.nonSelect {
+				user-select: none;
+			}
+
+			.hearts {
+				display: flex;
+				margin: auto;
+				justify-content: left;
+				align-items: left;
+			}
+
+			.points {
+				display: flex;
+				margin: auto;
+				justify-content: right;
+				align-items: right;
+			}
+
+			.playButton {
+				position: relative;
+				top: 70%;
+				width: 30%;
+			}
+
+			.timer {
+				position: absolute;
+				font-size: 50px;
+				top: 20%;
+				left: 41.5%;
+				width: 15%;
+			}
+
+			.gameOver {
+				position: absolute;
+				top: 40%;
+				left: 41.5%;
+				width: 15%;
+				background-color: rgb(59, 75, 36);
+				border-radius: 30px;
+				opacity: 0.7;
+			}
+
+			.highscore {
+				position: absolute;
+				top: 85%;
+				left: 10%;
+				width: 30%;
+				display: flex;
+				margin: auto;
+				justify-content: left;
+				align-items: left;
+			}
+		</style>
+	</head>
+
+	<body background="Images/PatternSprinklesGreen.png">
+		<!-- Navbar (sit on top) -->
+		<div class="w3-top">
+			<div class="w3-bar w3-green w3-card" id="myNavbar">
+				<img src="Images/Joystick.png" class="w3-bar-item" height="60px" width="100px" style="padding-left: 10px;">
+				<a href="Lobby.html" class="w3-bar-item w3-green2 w3-button">
+                    <i class="fa fa-th"></i> Lobby
+                </a>
+
+				<!-- Right-sided navbar links -->
+				<div class="w3-right w3-hide-small">
+                    <a href="About.html" class="w3-bar-item w3-green2 w3-button">ABOUT</a>
+                </div>
+				<!-- Hide right-floated links on small screens and replace them with a menu icon -->
+				
+				<a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+					<i class="fa fa-bars"></i>
+				</a>
+			</div>
+		</div>
+
+		<!--Top JoyByte site name and back icon-->
+		<h1 style="font-size:50px; padding-top: 75px; padding-left: 200px;">
+            <form action="Lobby.html">
+                <button type="submit"; style="border: 0px; background: none; padding-right: 50px;">
+                    <img src="Images/backIcon2.png" onmouseover="hoverOverSound()" height="50px" width="60px" class="iconGreen nonSelect">
+                </button>
+
+                <b style="color: rgb(77, 184, 81);">Joy</b><b class="w3-green2" style="border-radius: 20px;">Byte</b>  <b style="color: rgb(77, 184, 81);">Gaming</b>
+            </form>
+		</h1>
+
+		<div style="padding-left: 200px;">
+			<div id="GameCanvas" style="background-color: rgb(141, 255, 126); border-color: rgb(180, 255, 136); color: rgb(35, 114, 39); width: 90%; height: 1000px; border-radius: 20px; border-width: 5px; padding-top: 4%;" class="bordershadow">
+				<table style="width:100%;">
+                    <tr>
+                        <td style="padding-left: 10%">
+                            <h1 style="font-size: 60px;" class="hearts nonSelect" id="Hearts">
+                                ❤️❤️❤️
+                            </h1>
+                        </td>
+
+                        <td style="padding-right: 10%">
+                            <h1 style="font-size: 60px;" class="points nonSelect" id="Score">
+                                ? Points
+                            </h1>
+                        </td>
+                    </tr>
+                </table>
+
+				<h1 style="align-content: center;" class="centeredDiv nonSelect timer nonSelect" id="Timer">
+					30s left
+				</h1>
+
+				<!-- don't remove, it's important -->
+				<div id="BubblesPlace"></div>
+
+				<h1 style="align-content: center; color:white; visibility: hidden;" class="gameOver centeredDiv nonSelect" id="GameOver">
+					Game Over! <br>
+					Play again?
+				</h1>
+
+				<div style="align-content: center;" class="playButton centeredDiv nonSelect" id="StartButton">
+					<button onclick="startGame(); buttonSound();" style="border: none; border-radius: 10px; color: aliceblue; font-size: 40px;" class="choiceBorderShadow">Start</button>
+				</div>
+
+				<div style="align-content: center; font-size: 50px;" class="highscore centeredDiv nonSelect" id="Highscore">
+					Highscore: 0
+				</div>
+			</div>
+		</div>
+
+		<script src="js_and_css/ScoringBubbles.js"></script>
+		<script>
+			var audio1 = document.getElementById("sound1");
+			var audio2 = document.getElementById("sound2");
+
+			function buttonSound(volume) {
+				audio1.volume = volume || .05;
+				audio1.load();
+				audio1.play();
+			}
+
+			function hoverOverSound(volume) {
+				audio2.volume = volume || .1;
+				audio2.load();
+				audio2.play();
+			}
+		</script>
+    </body>
+</html>
+
+
